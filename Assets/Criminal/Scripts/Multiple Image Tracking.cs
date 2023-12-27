@@ -51,7 +51,7 @@ public class MultipleImageTracking : MonoBehaviour
 
         foreach(ARTrackedImage trackedImage in eventArgs.removed)
         {
-
+            _arObjects[trackedImage.referenceImage.name].gameObject.SetActive(false);
         }
     }
 
