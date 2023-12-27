@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabsToSpawn:
-  - {fileID: 919132149155446097, guid: 2a93541467a5a1a49a79cfc7f6acb1e7, type: 3}
+  - {fileID: 1359509177108184747, guid: 1272fc4eafe63de4297a16f5f7214101, type: 3}
   - {fileID: 919132149155446097, guid: 3c6f1d4a57df3b845b4d103f43ca9fd7, type: 3}
   - {fileID: 919132149155446097, guid: 8d143490f6a30094696fb2041fd43dd5, type: 3}
 --- !u!1 &1508373380

@@ -41,12 +41,12 @@ public class MultipleImageTracking : MonoBehaviour
     {
         foreach(ARTrackedImage trackedImage in eventArgs.added)
         {
-
+            UpdateTrackedImage(trackedImage);
         }
 
         foreach(ARTrackedImage trackedImage in eventArgs.updated)
         {
-
+            UpdateTrackedImage(trackedImage);
         }
 
         foreach(ARTrackedImage trackedImage in eventArgs.removed)
