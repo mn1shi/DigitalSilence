@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
+[RequireComponent(typeof(ARTrackedImageManager))]
 public class MultipleImageTracking : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefabsToSpawn;
@@ -20,7 +21,7 @@ public class MultipleImageTracking : MonoBehaviour
 
     private void Start()
     {
-        _arTrackedImageManager.trackedImagesChanged += OnTrackedImageChanged;
+       
 
         foreach(GameObject prefab in prefabsToSpawn)
         {
@@ -32,9 +33,14 @@ public class MultipleImageTracking : MonoBehaviour
 
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
         _arTrackedImageManager.trackedImagesChanged += OnTrackedImageChanged;
+    }
+
+    private void OnDisable()
+    {
+        _arTrackedImageManager.trackedImagesChanged -= OnTrackedImageChanged;
     }
 
     private void OnTrackedImageChanged(ARTrackedImagesChangedEventArgs eventArgs)

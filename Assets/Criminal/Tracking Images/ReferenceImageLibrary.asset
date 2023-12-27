@@ -27,23 +27,3 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: Poster
     m_Texture: {fileID: 2800000, guid: f797746f0ce539a4596514c099f92688, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 5136935907129243888
-      m_GuidHigh: 33355000488491923
-    m_SerializedTextureGuid:
-      m_GuidLow: 11503497211312301551
-      m_GuidHigh: 3970162611715724586
-    m_Size: {x: 10, y: 5.6224146}
-    m_SpecifySize: 1
-    m_Name: Head
-    m_Texture: {fileID: 2800000, guid: faf765efa1c39fa42a55da4bdcd91837, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 4792560371745050964
-      m_GuidHigh: 12662005843489426849
-    m_SerializedTextureGuid:
-      m_GuidLow: 4919105006580400233
-      m_GuidHigh: 12462652337134295064
-    m_Size: {x: 10, y: 13.281453}
-    m_SpecifySize: 1
-    m_Name: evidence
-    m_Texture: {fileID: 0}
