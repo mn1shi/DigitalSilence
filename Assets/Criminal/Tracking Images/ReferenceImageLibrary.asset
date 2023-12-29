@@ -12,18 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
   m_Name: ReferenceImageLibrary
   m_EditorClassIdentifier: 
-  m_GuidLow: 4966973054558407595
-  m_GuidHigh: 9204088843255272327
+  m_GuidLow: 0
+  m_GuidHigh: 0
   m_DataStore:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5447397636513052326
-      m_GuidHigh: 7799389486869730691
+      m_GuidLow: 5436181539096841192
+      m_GuidHigh: 4827083063196451726
     m_SerializedTextureGuid:
       m_GuidLow: 4153458938183382127
       m_GuidHigh: 9810803277021078873
-    m_Size: {x: 10, y: 12.58427}
+    m_Size: {x: 0.1, y: 0.1258427}
     m_SpecifySize: 1
-    m_Name: Poster
+    m_Name: tracker1
     m_Texture: {fileID: 2800000, guid: f797746f0ce539a4596514c099f92688, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5640339059198606481
+      m_GuidHigh: 4692206862557279413
+    m_SerializedTextureGuid:
+      m_GuidLow: 11503497211312301551
+      m_GuidHigh: 3970162611715724586
+    m_Size: {x: 0.1, y: 0.056224145}
+    m_SpecifySize: 1
+    m_Name: tracker2
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4820052574530532480
+      m_GuidHigh: 7562673650479113396
+    m_SerializedTextureGuid:
+      m_GuidLow: 4919105006580400233
+      m_GuidHigh: 12462652337134295064
+    m_Size: {x: 0.1, y: 0.13281453}
+    m_SpecifySize: 1
+    m_Name: tracker3
+    m_Texture: {fileID: 0}

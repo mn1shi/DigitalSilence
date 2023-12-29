@@ -7,72 +7,59 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class MultipleImageTracking : MonoBehaviour
 {
-    [SerializeField] private GameObject[] prefabsToSpawn;
+    private ARTrackedImageManager trackedImages;
+    public GameObject[] ArPrefabs;
 
-    private ARTrackedImageManager _arTrackedImageManager;
+    List<GameObject> ARObjects = new List<GameObject>();
 
-    private Dictionary<string, GameObject> _arObjects;
 
-    private void Awake()
+    void Awake()
     {
-        _arTrackedImageManager = GetComponent<ARTrackedImageManager>();
-        _arObjects = new Dictionary<string, GameObject>();
+        trackedImages = GetComponent<ARTrackedImageManager>();
     }
 
-    private void Start()
+    void OnEnable()
     {
-       
-
-        foreach(GameObject prefab in prefabsToSpawn)
-        {
-            GameObject newARObject = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            newARObject.name = prefab.name;
-            newARObject.gameObject.SetActive(false);
-            _arObjects.Add(newARObject.name, newARObject);
-        }
-
+        trackedImages.trackedImagesChanged += OnTrackedImagesChanged;
     }
 
-    private void OnEnable()
+    void OnDisable()
     {
-        _arTrackedImageManager.trackedImagesChanged += OnTrackedImageChanged;
+        trackedImages.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-    private void OnDisable()
+
+    // Event Handler
+    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
-        _arTrackedImageManager.trackedImagesChanged -= OnTrackedImageChanged;
-    }
-
-    private void OnTrackedImageChanged(ARTrackedImagesChangedEventArgs eventArgs)
-    {
-        foreach(ARTrackedImage trackedImage in eventArgs.added)
+        //Create object based on image tracked
+        foreach (var trackedImage in eventArgs.added)
         {
-            UpdateTrackedImage(trackedImage);
+            Debug.Log("trackedImage.referenceImage.name: " + trackedImage.referenceImage.name);
+            foreach (var arPrefab in ArPrefabs)
+            {
+                //Debug.Log("trackedImage.referenceImage.name: " + trackedImage.referenceImage.name);
+                if (trackedImage.referenceImage.name == arPrefab.name)
+                {
+                    var newPrefab = Instantiate(arPrefab, trackedImage.transform);
+                    Debug.Log("new prefab: " + newPrefab.name);
+                    ARObjects.Add(newPrefab);
+                }
+            }
         }
 
-        foreach(ARTrackedImage trackedImage in eventArgs.updated)
+        //Update tracking position
+        foreach (var trackedImage in eventArgs.updated)
         {
-            UpdateTrackedImage(trackedImage);
+            foreach (var gameObject in ARObjects)
+            {
+                if (gameObject.name == trackedImage.name)
+                {
+                    gameObject.SetActive(trackedImage.trackingState == TrackingState.Tracking);
+                    Debug.Log("gameobject: " + gameObject.name);
+                }
+            }
         }
 
-        foreach(ARTrackedImage trackedImage in eventArgs.removed)
-        {
-            _arObjects[trackedImage.referenceImage.name].gameObject.SetActive(false);
-        }
-    }
-
-    private void UpdateTrackedImage(ARTrackedImage trackedImage)
-    {
-        if(trackedImage.trackingState is TrackingState.Limited or TrackingState.None)
-        {
-            _arObjects[trackedImage.referenceImage.name].gameObject.SetActive(false);
-            return;
-        }
-
-        if(prefabsToSpawn != null)
-        {
-            _arObjects[trackedImage.referenceImage.name].gameObject.SetActive(true);
-            _arObjects[trackedImage.referenceImage.name].transform.position = trackedImage.transform.position;
-        }
     }
 }
