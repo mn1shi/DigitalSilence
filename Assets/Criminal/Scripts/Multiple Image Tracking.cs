@@ -47,7 +47,9 @@ public class MultipleImageTracking : MonoBehaviour
 
                     if (trackedImage.referenceImage.name == "tracker1")
                     {
-                        //ARObjects[0].
+                        Transform go = ARObjects[0].transform.Find("butterfly");
+                        //Debug.Log("transform: " + go.name);
+
                     }
 
                     if (trackedImage.referenceImage.name == "tracker2")
@@ -73,7 +75,7 @@ public class MultipleImageTracking : MonoBehaviour
                 if (gameObject.name == trackedImage.name)
                 {
                     gameObject.SetActive(trackedImage.trackingState == TrackingState.Tracking);
-                    Debug.Log("gameobject: " + gameObject.name);
+                    //Debug.Log("gameobject: " + gameObject.name);
                 }
             }
         }
