@@ -3,7 +3,22 @@ guid: 3c6f1d4a57df3b845b4d103f43ca9fd7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _HG_Eyes_Inner
+    second: {fileID: 2100000, guid: 11273314afa99514a8cc557a23e3bf71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _HG_Eyes_Outer_FAST
+    second: {fileID: 2100000, guid: 4040245c1e7925241af395469494b130, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _Human
+    second: {fileID: 2100000, guid: 2f4d0522d8c4c1d4897b71e7fdc10bca, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -44,7 +44,24 @@ public class MultipleImageTracking : MonoBehaviour
                     var newPrefab = Instantiate(arPrefab, trackedImage.transform);
                     Debug.Log("new prefab: " + newPrefab.name);
                     ARObjects.Add(newPrefab);
+
+                    if (trackedImage.referenceImage.name == "tracker1")
+                    {
+                        //ARObjects[0].
+                    }
+
+                    if (trackedImage.referenceImage.name == "tracker2")
+                    {
+                        //ARObjects[0].
+                    }
+
+                    if (trackedImage.referenceImage.name == "tracker3")
+                    {
+
+                    }
                 }
+
+
             }
         }
 
