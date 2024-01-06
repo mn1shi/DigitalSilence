@@ -26,20 +26,26 @@ public class Butterfly : MonoBehaviour
                 if (hit.transform.tag == "headC")
                 {
                     Vector3 pos = hit.point;
-                    pos.z += 0.25f;
-                    pos.y += 0.25f;
+                    Destroy(hit.transform.gameObject);
+                    //pos.z += 0.05f;
+                    //pos.y += 0.05f;
                     Instantiate(headC, pos, transform.rotation);
                     //Animator anim = hit.transform.GetComponent<Animator>();
                 }
 
                 if (hit.transform.tag == "headL")
                 {
+                    Vector3 pos = hit.point;
                     Destroy(hit.transform.gameObject);
+                    Instantiate(headL, pos, transform.rotation);
+                    
                 }
 
                 if (hit.transform.tag == "headR")
                 {
+                    Vector3 pos = hit.point;
                     Destroy(hit.transform.gameObject);
+                    Instantiate(headR, pos, transform.rotation);
                 }
 
             }
